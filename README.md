@@ -41,11 +41,11 @@
 
   - **Image:** Select ```Windows 10 Pro, version 21H2 - x64 Gen2```
   
-  ![VM create](Windows-10-Pro-version-21H2-x64-Gen2.png)
+  ![VM create](https://github.com/franciscovfonseca/Setting-Up-Vulnerable-VMs-in-Azure/assets/172988970/94169790-533a-4bdf-b264-ef258a66e94a)
   
   - **Networking**: When creating the virtual network, we will be leaving it to the default settings. For the purpose of this lab, I called mine ```Lab-VNet```.
   
-  ![netowkr](Virtual-Network-name-Lab-VNet.png)
+  ![netowkr](https://github.com/franciscovfonseca/Setting-Up-Vulnerable-VMs-in-Azure/assets/172988970/623a346c-d0dd-48b2-b25e-a639253d5cb2)
 
 
   </details>
@@ -71,7 +71,7 @@
 
   - **Action:** We'll set this to ```Allow```, which means that traffic matching this rule will be allowed to reach our VM. 
   
- ![NSG](Inbound-Security-Rule.png)
+ ![NSG](https://github.com/franciscovfonseca/Setting-Up-Vulnerable-VMs-in-Azure/assets/172988970/a2ae6d5b-bad7-4be2-ab79-c9ca14daee2d)
 
   
   - **Review & Create:** After i've input and configured all the details we need for this inbound rule, click 'Add' to create the rule. e
