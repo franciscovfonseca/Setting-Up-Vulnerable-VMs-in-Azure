@@ -16,14 +16,14 @@
 
 - Once you're in the Azure portal, navigate to the 'Virtual machines' section. 
   
-  ![azure portal](Virtual-Machines-Section.png)
+  ![azure portal](https://github.com/franciscovfonseca/Setting-Up-Vulnerable-VMs-in-Azure/assets/172988970/8148e2f5-ce75-4722-be5d-0b05c3abb68c)
 
   
   
 - Click on 'Create', then 'Virtual machine'. This is where we'll set up our new VM!
   
  
-  ![VM create](Create-Virtual-Machine.png)
+  ![VM create](https://github.com/franciscovfonseca/Setting-Up-Vulnerable-VMs-in-Azure/assets/172988970/9baa9f3a-0a06-4caf-8a44-cc9271841fe2)
   
   </details>
   
