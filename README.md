@@ -148,13 +148,13 @@ Click on "***Create***", then "***Azure virtual machine***" ➜ This is where we
 
 # Conclusion
 
-By creating our VMs and open inbound security rules, we're essentially leaving the front door of our VM wide open.
+By **Creating our VMs** and **Open Inbound Security Rules**, we're essentially leaving the front door of our VM wide open.
 
 This is generally not something you'd do in a real production environment, as it would make your system extremely vulnerable to attacks.
 
 However, in the context of our honeynet, it's exactly what we want to do!
 
-This allows us to attract potential attackers and observe their actions in a controlled environment.
+This allows us to **Attract Potential Attackers** and **Observe their Actions in a Controlled Environment**.
 
   
 <br />
