@@ -13,116 +13,168 @@ Virtual machines are like computers in the cloud, and they'll form the foundatio
 Here are the steps we'll take in **Microsoft Azure**:
 
 <br />
-<br />
 
-
-## 1️⃣ Sign in to the Azure Portal
+<details close> 
+<summary> <h2> 1️⃣ Sign in to the Azure Portal</h2> </summary>
+<br>
 
 The first step is to log into your **Azure Account**.
 
 If you don't have an account yet, **[you can create one here.](https://portal.azure.com)**
 
-<br />
-<br />
+  </details>
 
+<h2></h2>
 
-## 2️⃣ Create a Virtual Machine:
+<details close> 
+<summary> <h2>2️⃣ Create the Windows 10 Virtual Machine</h2> </summary>
+<br>
 
 Once you're in the **Azure Portal**, navigate to the "***Virtual machines***" section. 
   
-![azure portal](https://github.com/franciscovfonseca/Setting-Up-Vulnerable-VMs-in-Azure/assets/172988970/7fb3a3c7-300f-4a6c-be99-08385d652a40)
+![azure portal](https://github.com/user-attachments/assets/59c10e90-33da-4cf3-a40c-802f76edf858)
 
-<br />
 <br />
   
 Click on "***Create***", then "***Azure virtual machine***" ➜ This is where we'll set up our new VM.
   
  
-![VM create](https://github.com/franciscovfonseca/Setting-Up-Vulnerable-VMs-in-Azure/assets/172988970/55672c37-2314-4acf-8380-c4db6f2dc475)
+![VM create](https://github.com/user-attachments/assets/5a8e0b37-a640-4c61-8d54-df38b55984c3)
   
-<br />
-<br />
+  </details>
+
+<h2></h2>
+
+<details close> 
+<summary> <h2>3️⃣ Configure the Windows 10 VM's Settings</h2> </summary>
+<br>
   
-  
-## 3️⃣ Configure the Virtual Machine's Settings:
-  
-### *Subscription and Resource Group:*
+### Subscription & Resource Group:
 
 - We'll select our **Azure subscription** and **Resource group** ➜ Which is a way to group and manage resources in Azure.
 - For the purpose of the project, I already created a **Resource group** called ```RG-Cyber-Lab2``` 
 
   
-### *Virtual Machine Name:*
+### Virtual Machine Name:
 
-- For the purpose of this project, I have named this **VM** ```Lab-HoneyNet```
+- For the purpose of this project, I have named this **VM** ```windows-vm```
 
-### *Region:*
+### Region:
 
 - For the purpose of this project, I have chosen the **Region** ```(US) East US 2```
   
-### *Availability Options:*
+### Availability Options:
 
 - Being that the only purpose of this **Virtual Machine** will be to act as a **Honeypot**, we do not require any form of availability, so I selected ```No infrastructure redundancy required```
 
-### *Image:*
+### Image:
 
 - Select ```Windows 10 Pro, version 21H2 - x64 Gen2```
   
-  ![VM create](https://github.com/franciscovfonseca/Setting-Up-Vulnerable-VMs-in-Azure/assets/172988970/6552ee36-48ad-4019-9c4f-091e5bccc828)
+  ![VM create](https://github.com/user-attachments/assets/96de8fa2-6537-4177-8c0d-16c9d9104679)
 
-### *Networking:*
+### Size:
+
+- Choose a VM with at least 2 vCPUs that's not too expensive: ```Standard_E2bs_v5 - 2 vcpus, 16 GiB memory```
+
+### Administrator Account:
+
+- Username: ```labuser```
+- Password: ```Cyberlab123!```
+
+### Licensisng:
+
+- Make sure you check the ☑️ box
+
+  ![VM create](https://github.com/user-attachments/assets/9d117630-6161-4f56-a430-55f2a8150db3)
+
+### Networking Tab:
 
 - When creating the **Virtual network**, we will be leaving it to the **default** settings.
 - For the purpose of this lab, I called mine ```Lab-VNet```.
   
   ![netowkr](https://github.com/franciscovfonseca/Setting-Up-Vulnerable-VMs-in-Azure/assets/172988970/d1fae176-6879-4199-b0be-f56e8d2d437b)
-  
-<br />
-<br />
-  
- 
-## 4️⃣ NSG/Inbound Security Rule Configuration:
- 
-### *Navigate to the Network Security Group (NSG):*
 
-- In the Azure portal, search for 'Network Security Groups' in the search bar at the top.
-- Once there, select the NSG associated with your virtual machine.
+  </details>
+
+<h2></h2>
+
+<details close> 
+<summary> <h2>4️⃣ Create the Linux Virtual Machine</h2> </summary>
+<br>
   
-### *Create an inbound security rule:*
+- Same **Region**, **Resource Group**, and **VNet** as the ```windows-vm``` Virtual Machine
+
+- I named this second **VM** ```linux-vm```
+
+- For the **Image** I selected the ```Ubuntu Server 20.04 LTS```
+
+  ![VM create](https://github.com/user-attachments/assets/fd16cae4-cdfd-45c8-b0a3-d94a04c9677d)
+
+- I used the same **Size**, **Admin Username and Password** as the ones used for the Windows VM
+
+- For **Virtual Network**, I made sure I selected the same VNet ```Lab-VNet``` that I had created while setting up the Windows VM.
+
+
+<br>
+
+  </details>
+
+<h2></h2>
+<details close> 
+<summary> <h2>5️⃣ NSG & Inbound Security Rule Configuration</h2> </summary>
+<br>
+
+> In this step I opened up **Network Security Groups (NSGs)** for both VMs:
+> 
+> - Configure the NSGs (Layer 4 Firewalls) to allow **all inbound traffic**.
+
+<br>
+
+### Navigate to the Network Security Group (NSG):
+
+- In the Azure portal, search for "**Network Security Groups**" in the search bar at the top.
+- Once there, select the NSG associated with your virtual machine.
+
+ ![NSG](https://github.com/user-attachments/assets/f65a25f9-c6a7-461e-8542-3a5a3c84ca38)
+  
+### Create an inbound security rule:
 
 - Inside the NSG, you'll find a section for "**Inbound security rules**".
 - This is where we control what kind of traffic is allowed to reach our VM.
 - Click on "***Add***" to create a "**new rule**".
 
-### *Configure the rule:*
+ ![NSG](https://github.com/user-attachments/assets/13424b7c-9402-4ed2-bc14-51e3de7ba08c)
+
+### Configure the rule:
 
 - We'll be prompted to input some details about our new rule.
   
-### *Source:*
+### Source:
 
 - This defines where the incoming traffic is coming from.
   
   - We can set this to ```Any``` to allow traffic from any location.
   
-### *Source port ranges:*
+### Source port ranges:
 
 - This specifies the ports on the source (the computer initiating the connection) that are allowed.
 
   - Again, we can set this to ```*``` or ```Any``` to allow all ports.
 
-### *Destination:*
+### Destination:
 
 - This defines where the traffic is going to.
 
   - Since we want the traffic to reach our VM, we can set this to ```Any```.
   
-### *Destination port ranges:*
+### Destination port ranges:
 
 - This specifies the ports on our VM that are allowed to receive traffic.
 
   - We can set this to ```*``` or ```Any``` to open all ports.
   
-### *Priority:*
+### Priority:
 
 - Setting priorities in Network Security Groups (NSGs) is an essential step.
 - The priority determines the order in which rules are applied.
@@ -130,25 +182,34 @@ Click on "***Create***", then "***Azure virtual machine***" ➜ This is where we
 
   - For the purpose of this lab, I set the priority to ```300``` to ensure that this honeypot functions as intended!
 
-### *Action:*
+### Action:
 
 - We'll set this to ```Allow```, which means that traffic matching this rule will be allowed to reach our VM. 
   
  ![NSG](https://github.com/franciscovfonseca/Setting-Up-Vulnerable-VMs-in-Azure/assets/172988970/0bf17e13-1f81-42ac-8692-dbf3bbbdf893)
 
   
-### *Review & Create:*
+### Review & Create:
 
 - After configuring all the details we need for this inbound rule, click "***Add***" to **Create the Rule**.
- 
-  
-<br />
-<br />
-  
+
+<br>
+
+➡️ I then followed the exact same process for the ```linux-vm``` Virtual Machine
+
+<br>
+
+  </details>
+
+<h2></h2>
+
+<br>
 
 # Conclusion
 
-By **Creating our VMs** and **Open Inbound Security Rules**, we're essentially leaving the front door of our VM wide open.
+<br>
+
+By **Creating our VMs** and **Open Inbound Security Rules**, we're essentially leaving the front door of our VMs wide open.
 
 This is generally not something you'd do in a real production environment, as it would make your system extremely vulnerable to attacks.
 
