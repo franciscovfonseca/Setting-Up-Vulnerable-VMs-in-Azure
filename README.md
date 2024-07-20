@@ -60,11 +60,11 @@ Click on "***Create***", then "***Azure virtual machine***" ➜ This is where we
   
 ### Virtual Machine Name:
 
-- For the purpose of this project, I have named this **VM** ```windows-vm```
+- In this case, I have named this **VM** ```windows-vm```
 
 ### Region:
 
-- For the purpose of this project, I have chosen the **Region** ```(US) East US 2```
+-  As for the **Region** , you can choose ```(US) East US 2```
   
 ### Availability Options:
 
