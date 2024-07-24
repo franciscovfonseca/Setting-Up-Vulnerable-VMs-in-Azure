@@ -1,6 +1,6 @@
 <br>
 
-# Setting Up a Honeypot in Microsoft Azure
+<h1 align="center">Setting Up a Honeypot in Microsoft Azure</h1>
 
 <br>
 
